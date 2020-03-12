@@ -1,6 +1,6 @@
-##création d'une config basic Asterisk (VoIP)
+CREATION D'UNE CONFIGURATION BASIQUE ASTERISK (VOIP)
 
-#utilisateur : 
+UTILISATEUR : 
 
 directeur . numéro 1001
 
