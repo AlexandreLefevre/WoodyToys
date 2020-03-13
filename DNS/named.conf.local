@@ -1,0 +1,41 @@
+acl internals {
+    localhost;
+    51.77.203.64;
+    51.77.203.63;
+    2001:41d0:404:200::1332/128; //ipv6 MAXIME
+
+};
+
+view internal {
+    match-clients { internals; };
+    recursion yes;
+    allow-recursion { internals; };
+        zone "wt14.ephec-ti.be" {
+        type master;
+        file "/etc/bind/db.local.wt14.ephec-ti.be";
+       // file "/etc/bind/db.wt14.ephec-ti.be.signed";
+        allow-transfer { 213.186.33.199; };
+        allow-query { any; };
+        notify yes;
+    };
+
+
+    //mettre la zone pour le reverse
+    zone "203.77.51.in-addr.arpa." {
+    type master;
+    file "/etc/bind/db.203.77.51.in-addr.arpa";
+        };
+};
+
+view external {
+    match-clients { any; };
+    zone "wt14.ephec-ti.be" {
+        type master;
+        file "/etc/bind/db.wt14.ephec-ti.be";
+    };
+
+    zone "203.77.51.in-addr.arpa." {
+    type master;
+    file "/etc/bind/db.203.77.51.in-addr.arpa";
+        };
+};
