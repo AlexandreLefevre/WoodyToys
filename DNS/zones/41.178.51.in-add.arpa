@@ -1,5 +1,5 @@
 $TTL 604800
-$ORIGIN 203.77.51.in-addr.arpa.
+  $ORIGIN 41.178.51.in-addr.arpa.
 @               IN      SOA     ns1.wt7.ephec-ti.be. root.wt7.ephec-ti.be. (
                                         1        ;serial
                                         3H       ; refresh
@@ -9,9 +9,9 @@ $ORIGIN 203.77.51.in-addr.arpa.
 
 
 @                       IN      NS              ns1.wt7.ephec-ti.be.
-64                      IN      PTR             ns1.wt7.ephec-ti.be.
+9                      IN      PTR             ns1.wt7.ephec-ti.be.
 
-64                      IN      PTR             mail.wt7.ephec-ti.be.
-64                      IN      PTR             www.wt7.ephec-ti.be.
-64                      IN      PTR             b2b.wt7.ephec-ti.be.
-64                      IN      PTR             intranet.wt7.ephec-ti.be.
+9                      IN      PTR             mail.wt7.ephec-ti.be.
+9                      IN      PTR             www.wt7.ephec-ti.be.
+9                      IN      PTR             b2b.wt7.ephec-ti.be.
+9                      IN      PTR             intranet.wt7.ephec-ti.be.
