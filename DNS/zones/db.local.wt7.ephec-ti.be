@@ -4,7 +4,7 @@
 ;
 
 $TTL 1d
-$ORIGIN wt14.ephec-ti.be.
+$ORIGIN wt7.ephec-ti.be.
 @       1D      IN      SOA     ns1.wt7.ephec-ti.be. root.wt7.ephec-ti.be. (
                                 1       ; serial
                                 3H      ; refresh
