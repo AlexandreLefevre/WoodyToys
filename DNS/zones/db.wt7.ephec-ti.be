@@ -22,7 +22,7 @@ ns1     IN      A       51.178.41.9                    ; Cet enregistrement fait
 
 ;Configuration WEB
 
-web             IN      A       51.178.41.9 ; VPS - MAXIME
+web             IN      A       51.178.41.9 ; VPS - TIMOTHY GILLES
 web             IN      AAAA    2001:41d0:0304:0200:0000:0000:0000:010c
 www             IN      CNAME   web
 b2b             IN      CNAME   web
