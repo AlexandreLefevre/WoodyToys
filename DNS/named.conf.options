@@ -1,4 +1,10 @@
 options {
+        // On lui indique d'écouter sur localhost (pour la résolution interne de la machine qui héberge le résolveur)
+        listen-on { 51.178.41.9;
+                    localhost;
+        };
+
+        port 53;
         directory "/var/cache/bind";
 
         // If there is a firewall between you and nameservers you want
@@ -14,17 +20,25 @@ options {
         //      0.0.0.0;
         // };
 
-        allow-recursion { any; };
         //========================================================================
         // If BIND logs error messages about the root key being expired,
         // you will need to update your keys.  See https://www.isc.org/bind-keys
-        //================
-        // DNSSEC
-        dnssec-enable yes;
-        dnssec-validation yes;
-        dnssec-lookaside no;
+        //========================================================================
+
+        //Indique que l'on utilise un service de sécurité DNS
+        //dnssec-enable yes;
+
+        //Active le cryptage de chaque  enregistrement de notre fichier de zone
+        //dnssec-validation yes;
+        //dnssec-lookside auto;
 
         auth-nxdomain no;    # conform to RFC1035
-        listen-on{ any; };
         listen-on-v6 { any; };
+
+         // cette directive permet de mettre en place un résolveur.
+        //Ceci active la récursion
+        recursion yes;
+        allow-transfer {"none";};
+        //Pour cacher la version de bind9
+        version "Inconnu";
 };
