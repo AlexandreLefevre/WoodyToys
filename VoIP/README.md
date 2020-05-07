@@ -2,15 +2,15 @@
 
 ## Utilisateurs : 
 
-- directeur . numéro 1001
+- directeur . numéro 5001
 
-- secrétaire . numéro 1002
+- secrétaire . numéro 5002
 
 - ouvrier . numéro 2001
 
 - comptable . numéro 3001
 
-- commercial . numéro 4001
+- commercial . numéro 8001,8002,8003
 
 ##
 
