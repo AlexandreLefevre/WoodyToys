@@ -24,8 +24,11 @@ ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/voicema
 ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/users.conf /etc/asterisk/users.conf
 ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/sip.conf /etc/asterisk/sip.conf
 
-
-EXPOSE 5060 5060/udp
+# ports exposés
+EXPOSE 5060/udp
+EXPOSE 5060/tcp
+EXPOSE 4569/udp
+EXPOSE 4569/tcp
 
     
 CMD asterisk -fvvvvv
