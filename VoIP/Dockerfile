@@ -26,7 +26,7 @@ ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/sip.con
 
 
 EXPOSE 5060 5060/udp
-EXPOSE 10000-20000/udp
+
     
 CMD asterisk -fvvvvv
     
