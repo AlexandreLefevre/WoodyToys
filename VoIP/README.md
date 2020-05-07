@@ -8,7 +8,7 @@
 
 - Comptable . numéro 6000 (bureau), 6001,6002
 
-- Commercial . numéro 7001,7002,7003
+- Commercial . numéro 7001,7002
 
 - Atelier . numéro 8001,8002,8003
 
