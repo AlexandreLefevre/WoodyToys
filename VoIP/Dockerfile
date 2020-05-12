@@ -15,9 +15,9 @@ RUN apt install -y \
   
 WORKDIR /usr/local/src/
 
-RUN wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-14.4.0.tar.gz
-RUN tar -xzf asterisk-14.4.0.tar.gz
-WORKDIR /usr/local/src/asterisk-14.4.0
+RUN wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-17.4.0.tar.gz
+RUN tar -xzf asterisk-17.4.0.tar.gz
+WORKDIR /usr/local/src/asterisk-17.4.0
 
 RUN ./configure
 RUN make
