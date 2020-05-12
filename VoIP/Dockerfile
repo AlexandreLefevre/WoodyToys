@@ -1,35 +1,34 @@
-FROM ubuntu:16.04
+FROM debian
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential wget libssl-dev libncurses5-dev \
-    libnewt-dev libxml2-dev linux-headers-$(uname -r) uuid-dev \
-    libsqlite3-dev libjansson-dev  \
-    subversion && \
-    wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-15-current.tar.gz && \
-    tar -xzvf asterisk-15-current.tar.gz &&  \
-    cd asterisk-15.*/  && \
-    ./contrib/scripts/get_mp3_source.sh && \
-    ./configure && \
-    make menuselect.makeopts && \
-    menuselect/menuselect \
-    --enable CORE-SOUNDS-FR-ULAW \
-    --enable MOH-OPSOUND-ULAW \
-    --enable EXTRA-SOUNDS-FR-ULAW \
-    menuselect.makeopts && \
-    make && make install  && make samples && make config && \
-    apt-get clean 
+RUN apt update && apt upgrade -y 
+RUN apt install -y \
+  build-essential \
+  wget \
+  openssl \
+  libxml2-dev \
+  libncurses5-dev \
+  uuid-dev \
+  sqlite3 \
+  libsqlite3-dev \
+  pkg-config \
+  libjansson-dev
+  
+WORKDIR /usr/local/src/
 
-ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/extensions.conf /etc/asterisk/extensions.conf
-ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/voicemail.conf /etc/asterisk/voicemail.conf
-ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/users.conf /etc/asterisk/users.conf
-ADD  https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/sip.conf /etc/asterisk/sip.conf
+RUN wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-14.4.0.tar.gz
+RUN tar -xzf asterisk-14.4.0.tar.gz
+WORKDIR /usr/local/src/asterisk-14.4.0
 
-# ports exposés
+RUN ./configure
+RUN make
+RUN make install 
+RUN make samples
+
+VOLUME /etc/asterisk
+
 EXPOSE 5060/udp
 EXPOSE 5060/tcp
 EXPOSE 4569/udp
-EXPOSE 4569/tcp
+EXPOSE 16384-16394/udp
 
-    
-CMD asterisk -fvvvvv
-    
+CMD ["asterisk", "-f"]
