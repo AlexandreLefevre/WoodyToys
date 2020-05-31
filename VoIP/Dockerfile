@@ -1,34 +1,17 @@
-FROM debian
+FROM ubuntu
 
-RUN apt update && apt upgrade -y 
-RUN apt install -y \
-  build-essential \
-  wget \
-  openssl \
-  libxml2-dev \
-  libncurses5-dev \
-  uuid-dev \
-  sqlite3 \
-  libsqlite3-dev \
-  pkg-config \
-  libjansson-dev
-  
-WORKDIR /usr/local/src/
 
-RUN wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-17.4.0.tar.gz
-RUN tar -xzf asterisk-17.4.0.tar.gz
-WORKDIR /usr/local/src/asterisk-17.4.0
+RUN apt-get update
 
-RUN ./configure
-RUN make
-RUN make install 
-RUN make samples
+RUN apt-get -y install asterisk
+
 
 VOLUME /etc/asterisk
+
 
 EXPOSE 5060/udp
 EXPOSE 5060/tcp
 EXPOSE 4569/udp
-EXPOSE 16384-16394/udp
+EXPOSE 4569/tcp
 
-CMD ["asterisk", "-f"]
+ENTRYPOINT [ "/usr/sbin/asterisk", "-f" ]
