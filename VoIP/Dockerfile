@@ -6,6 +6,10 @@ RUN apt-get update
 
 RUN apt-get -y install asterisk
 
+ADD https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/extensions.conf /etc/asterisk/extensions.conf
+ADD https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/sip.conf /etc/asterisk/sip.conf
+ADD https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/users.conf /etc/asterisk/users.conf
+ADD https://github.com/AlexandreLefevre/WoodyToys/blob/master/VoIP/conf/voicemail.conf /etc/asterisk/voicemail.conf
 
 VOLUME /etc/asterisk
 
