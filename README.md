@@ -1,6 +1,6 @@
 # WoodyToys
 
-# Groupe 2TL2 - 7
+## Groupe 2TL2 - 7
 
  - Timothy Gilles
 
